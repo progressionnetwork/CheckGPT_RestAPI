@@ -7,7 +7,7 @@ Use our web app and RestAPI at https://checkgpt.app:8000.
 
 
 # Usage via steemlit webapp:
-![alt text](https://img3.teletype.in/files/e6/b4/e6b48b09-6c0a-408e-b65f-ffbfc86718cc.png![img_1.png](img_1.png))
+![alt text](https://img4.teletype.in/files/3a/69/3a691608-ab6c-49f8-b07b-e6f9890a591b.png)
 
 # Check content via Telegram bot https://t.me/chatgpt_bot
 
