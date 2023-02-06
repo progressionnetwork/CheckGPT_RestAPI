@@ -1,7 +1,7 @@
 import json
 import requests
 
-url = "http://checkgpt.app:8000/predict"
+url = "http://checkgpt.app:8008/predict"
 
 data_empl = {
     "text": """In the one point of view, it is one of the man’s characters to be curious. He wants to break the limits and learn more. No one can oppose to this quality of human. This curiosity caused many inventions and profits for the people around the world. In the other hand, we live together and we should think about others, have compassion for them and give their due. It is not fair that governments notice on their points and don’t think that it may harm other people. In my opinion, governments should spend money for our basic needs on earth and stop spending money for outer space researches.
@@ -25,18 +25,26 @@ In short, Intellectual Enlightenment is about the growth of knowledge and unders
 }
 
 
-def send_req(data, is_debug=True):
-    jsoned_req = json.dumps(data)
-    if is_debug: print(jsoned_req)
-    r = requests.post(url, data=jsoned_req, headers={'Content-Type': 'application/json'})
-    if is_debug: print(r.text)
-    return r
-
-
 if __name__ == "__main__":
+    is_debug = True
+
     print('This is CheckGPT - A neural network to detect content generated using big LMs (like ChatGPT, GPT3, GPT2)')
     print('For AI generated content detection, we are using statistical and heuristical methods, perplexity, entropy, '
           'coherence and consistency and other. Accuracy is up to 98%. Use our web app and RestAPI at checkgpt.app.')
-    answr = send_req(data)
-    print(answr)
+
+    jsoned_req = json.dumps(data)
+    if is_debug: print(jsoned_req)
+
+    try:
+        r = requests.post(url, data=jsoned_req, headers={'Content-Type': 'application/json'})
+        if is_debug: print(r.text)
+        answer = json.loads(r.text)
+        print("Request ID:", answer["request_id"])
+        print("Result:", answer["result"])
+        print("Human score:", answer["human_score"])
+        print("ChatGPT score:", answer["ChatGPT_score"])
+        print("Execution time:", answer["execution_time"])
+    except:
+        print("Some error while sending POST request. Please check your connection and try again!")
+
     print('Done.')
