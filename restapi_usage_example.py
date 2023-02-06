@@ -1,7 +1,7 @@
 import json
 import requests
 
-url = "http://checkgpt.app:8008/predict"
+url = "http://checkgpt.app:8880/predict"
 
 data_empl = {
     "text": """In the one point of view, it is one of the man’s characters to be curious. He wants to break the limits and learn more. No one can oppose to this quality of human. This curiosity caused many inventions and profits for the people around the world. In the other hand, we live together and we should think about others, have compassion for them and give their due. It is not fair that governments notice on their points and don’t think that it may harm other people. In my opinion, governments should spend money for our basic needs on earth and stop spending money for outer space researches.
